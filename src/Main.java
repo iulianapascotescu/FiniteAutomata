@@ -25,7 +25,10 @@ public class Main {
             {
                 System.out.println("Insert string: ");
                 String string = in.next();
-                System.out.println(finiteAutomata.isAccepted(string));
+                if(finiteAutomata.isDFA()) {
+                    System.out.println(finiteAutomata.isAccepted(string));
+                }
+                else System.out.println("This FA is not a DFA.");
                 System.out.println("\n");
             }
             else System.out.println("Invalid command");

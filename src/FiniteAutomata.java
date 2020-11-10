@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class FiniteAutomata {
     private List<String> states;
@@ -73,6 +74,15 @@ public class FiniteAutomata {
             result.add(element);
         }
         return result;
+    }
+
+    public boolean isDFA(){
+        for(int i=0;i<transitions.size()-1;i++){
+            for(int j=i+1;j<transitions.size();j++)
+                if (transitions.get(i).element1.element1.equals(transitions.get(j).element1.element1) && transitions.get(i).element1.element2.equals(transitions.get(j).element1.element2))
+                    return false;
+        }
+        return true;
     }
 
     public boolean isAccepted(String DFA){
